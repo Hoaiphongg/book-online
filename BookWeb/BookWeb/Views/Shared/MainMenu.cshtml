@@ -1,0 +1,13 @@
+﻿@model List<Model.Entity.Menu>
+
+
+<nav class="header__menu" style="margin-right:10px;">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="@item.link">@item.name</a></li>
+            
+        }
+
+    </ul>
+</nav>

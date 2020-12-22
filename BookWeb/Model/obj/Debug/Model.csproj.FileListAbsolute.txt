@@ -1,0 +1,12 @@
+D:\Nam Can Tho\BookWeb\Model\bin\Debug\Model.dll.config
+D:\Nam Can Tho\BookWeb\Model\bin\Debug\Model.dll
+D:\Nam Can Tho\BookWeb\Model\bin\Debug\Model.pdb
+D:\Nam Can Tho\BookWeb\Model\bin\Debug\EntityFramework.dll
+D:\Nam Can Tho\BookWeb\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Nam Can Tho\BookWeb\Model\bin\Debug\EntityFramework.xml
+D:\Nam Can Tho\BookWeb\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Nam Can Tho\BookWeb\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Nam Can Tho\BookWeb\Model\obj\Debug\Model.csproj.CopyComplete
+D:\Nam Can Tho\BookWeb\Model\obj\Debug\Model.dll
+D:\Nam Can Tho\BookWeb\Model\obj\Debug\Model.pdb
+D:\Nam Can Tho\BookWeb\Model\obj\Debug\Model.csprojAssemblyReference.cache

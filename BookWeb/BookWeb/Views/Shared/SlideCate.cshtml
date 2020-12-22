@@ -1,0 +1,18 @@
+﻿@model List<Model.Entity.Book>
+
+<section class="categories">
+    <div class="container">
+        <div class="row">
+            <div class="categories__slider owl-carousel">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="@item.image">
+                            <h5><a href="/san-pham/@item.metatitle-@item.id">@item.name</a></h5>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

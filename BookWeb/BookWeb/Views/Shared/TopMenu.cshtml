@@ -1,0 +1,9 @@
+﻿@model List<Model.Entity.Menu>
+
+
+@foreach (var item in Model)
+{
+    <div class="header__top__right__auth" style="padding-right:10px;">
+        <a href="@item.link"><i class="fa fa-user"></i> @item.name</a>
+    </div>
+}

@@ -1,0 +1,15 @@
+﻿@model  List<Model.Entity.Category>
+
+<div class="hero__categories">
+    <div class="hero__categories__all">
+        <i class="fa fa-bars"></i>
+        <span>Danh Muc San Pham</span>
+    </div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="/san-pham/@item.metatitle-@item.id">@item.name</a></li>
+        }
+
+    </ul>
+</div>
