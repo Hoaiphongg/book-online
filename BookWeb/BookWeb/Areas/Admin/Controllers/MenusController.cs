@@ -18,7 +18,8 @@ namespace BookWeb.Areas.Admin.Controllers
         // GET: Admin/Menus
         public async Task<ActionResult> Index()
         {
-            return View(await db.Menus.ToListAsync());
+            var menus = db.Menus.Include(m => m.MenuType);
+            return View(await menus.ToListAsync());
         }
 
         // GET: Admin/Menus/Details/5
@@ -39,6 +40,7 @@ namespace BookWeb.Areas.Admin.Controllers
         // GET: Admin/Menus/Create
         public ActionResult Create()
         {
+            ViewBag.typeid = new SelectList(db.MenuTypes, "id", "name");
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace BookWeb.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,name,link,displayorder,status")] Menu menu)
+        public async Task<ActionResult> Create([Bind(Include = "id,name,link,displayorder,status,typeid")] Menu menu)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +58,7 @@ namespace BookWeb.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.typeid = new SelectList(db.MenuTypes, "id", "name", menu.typeid);
             return View(menu);
         }
 
@@ -71,6 +74,7 @@ namespace BookWeb.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.typeid = new SelectList(db.MenuTypes, "id", "name", menu.typeid);
             return View(menu);
         }
 
@@ -79,7 +83,7 @@ namespace BookWeb.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id,name,link,displayorder,status")] Menu menu)
+        public async Task<ActionResult> Edit([Bind(Include = "id,name,link,displayorder,status,typeid")] Menu menu)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace BookWeb.Areas.Admin.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.typeid = new SelectList(db.MenuTypes, "id", "name", menu.typeid);
             return View(menu);
         }
 

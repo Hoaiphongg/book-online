@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Delete</h2>
@@ -12,6 +12,14 @@
     <h4>Menu</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuType.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuType.name)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.name)
         </dt>

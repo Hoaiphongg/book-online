@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -17,14 +17,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Account.username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Account1.username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Account1.username)
         </dd>
 
         <dt>
@@ -65,6 +57,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.shipMobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shipname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shipname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shipemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shipemail)
         </dd>
 
     </dl>

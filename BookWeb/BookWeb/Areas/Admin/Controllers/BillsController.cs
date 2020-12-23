@@ -18,7 +18,7 @@ namespace BookWeb.Areas.Admin.Controllers
         // GET: Admin/Bills
         public async Task<ActionResult> Index()
         {
-            var bills = db.Bills.Include(b => b.Account).Include(b => b.Account).Include(b => b.Discount);
+            var bills = db.Bills.Include(b => b.Account).Include(b => b.Discount);
             return View(await bills.ToListAsync());
         }
 
@@ -41,7 +41,6 @@ namespace BookWeb.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.idCustomer = new SelectList(db.Accounts, "id", "username");
-            ViewBag.idEmployee = new SelectList(db.Accounts, "id", "username");
             ViewBag.idDiscount = new SelectList(db.Discounts, "id", "id");
             return View();
         }
@@ -51,7 +50,7 @@ namespace BookWeb.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,idCustomer,idEmployee,idDiscount,sale,checkin,shipaddress,shipMobile")] Bill bill)
+        public async Task<ActionResult> Create([Bind(Include = "id,idCustomer,idDiscount,sale,checkin,shipaddress,shipMobile,shipname,shipemail")] Bill bill)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +86,7 @@ namespace BookWeb.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id,idCustomer,idEmployee,idDiscount,sale,checkin,shipaddress,shipMobile")] Bill bill)
+        public async Task<ActionResult> Edit([Bind(Include = "id,idCustomer,idDiscount,sale,checkin,shipaddress,shipMobile,shipname,shipemail")] Bill bill)
         {
             if (ModelState.IsValid)
             {
