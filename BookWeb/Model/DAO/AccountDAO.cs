@@ -24,6 +24,14 @@ namespace Model.DAO
             return account.id;
         }
 
+        public int InsertUser(Model.Entity.Account account)
+        {
+            db.Accounts.Add(account);
+            db.SaveChanges();
+
+            return account.id;
+        }
+
         public Account GetByID(string Username)
         {
             return db.Accounts.SingleOrDefault(x => x.username == Username);
@@ -33,6 +41,34 @@ namespace Model.DAO
         {
             var result = db.Accounts.SingleOrDefault(x => x.username == user);
             if (result == null || result.groupid != "Admin")
+            {
+                return 0;
+            }
+            else
+            {
+                if (result.status == false)
+                {
+                    return -1;
+                }
+                else
+                {
+                    if (result.password == pass)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return -2;
+                    }
+                }
+            }
+
+        }
+
+        public int LoginUser(string user, string pass, string groupid)
+        {
+            var result = db.Accounts.SingleOrDefault(x => x.username == user);
+            if (result == null || result.groupid != "Member")
             {
                 return 0;
             }

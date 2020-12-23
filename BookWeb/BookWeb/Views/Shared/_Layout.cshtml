@@ -104,9 +104,6 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            @*<div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>*@
                             @{ Html.RenderAction("TopMenu", "Home");}
                         </div>
                     </div>
@@ -121,23 +118,6 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    @*<nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li>
-                                <a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
-                        </ul>
-                    </nav>*@
                     @{Html.RenderAction("MainMenu", "Home");}
                 </div>
                 <div class="col-lg-3">
@@ -188,9 +168,9 @@
                     <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
                         <div class="hero__text">
                             <span>New Book</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                            <h2>Nhap Khau <br />100% Organic</h2>
+                            <p>Tri Thuc danh bat tat ca</p>
+                            <a href="/Home/AllBook" class="primary-btn">Mua ngay</a>
                         </div>
                     </div>
                 </div>

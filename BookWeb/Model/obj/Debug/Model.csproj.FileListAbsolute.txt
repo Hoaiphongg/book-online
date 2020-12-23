@@ -17,7 +17,6 @@ D:\Nam Can Tho\book-online\BookWeb\Model\bin\Debug\EntityFramework.dll
 D:\Nam Can Tho\book-online\BookWeb\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\Nam Can Tho\book-online\BookWeb\Model\bin\Debug\EntityFramework.xml
 D:\Nam Can Tho\book-online\BookWeb\Model\bin\Debug\EntityFramework.SqlServer.xml
-D:\Nam Can Tho\book-online\BookWeb\Model\obj\Debug\Model.csprojAssemblyReference.cache
 D:\Nam Can Tho\book-online\BookWeb\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\Nam Can Tho\book-online\BookWeb\Model\obj\Debug\Model.csproj.CopyComplete
 D:\Nam Can Tho\book-online\BookWeb\Model\obj\Debug\Model.dll

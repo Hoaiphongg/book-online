@@ -1,17 +1,17 @@
-﻿@model IEnumerable
-<Model.Entity.Category>
+﻿@model IEnumerable<Model.Entity.Category>
 
-    @{ ViewBag.Title = "Index"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+@{ ViewBag.Title = "Index"; Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
 
-    <h2>Index</h2>
-    <div class="container-fluid" style="padding-top: 10%">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h1 class="m-0 font-weight-bold text-primary">Danh Sach Tai Khoan Nguoi Dung He Thong</h1>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-
+<h2>Index</h2>
+<div class="container-fluid" style="padding-top: 10%">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="m-0 font-weight-bold text-primary">Danh Sach Tai Khoan Nguoi Dung He Thong</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <button class="btn btn-outline-primary py-2 my-3 float-right" type="submit">@Html.ActionLink("Them Moi Nguoi Dung", "Create")</button>
+                <table class="table table-bordered">
                     <tr>
                         <th>
                             @Html.DisplayNameFor(model => model.name)
@@ -25,25 +25,26 @@
                         <th></th>
                     </tr>
 
-                    @foreach (var item in Model) {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.metatitle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.status)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id=item.id }) | @Html.ActionLink("Details", "Details", new { id=item.id }) | @Html.ActionLink("Delete", "Delete", new { id=item.id })
-                        </td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.metatitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.status)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id }) | @Html.ActionLink("Details", "Details", new { id = item.id }) | @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                            </td>
+                        </tr>
                     }
 
-                    </table>
-                </div>
+                </table>
             </div>
         </div>
     </div>
+</div>

@@ -8,9 +8,6 @@ namespace BookWeb.Models
 {
     public class LoginModel
     {
-        [Key]
-        public int ID { set; get; }
-
         [Display(Name = "Tên đăng nhập")]
         [Required(ErrorMessage = "Bạn phải nhập tài khoản")]
         public string UserName { set; get; }

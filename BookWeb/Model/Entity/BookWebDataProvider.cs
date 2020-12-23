@@ -97,5 +97,6 @@ namespace Model.Entity
                 .WithOptional(e => e.MenuType)
                 .HasForeignKey(e => e.typeid);
         }
+
     }
 }

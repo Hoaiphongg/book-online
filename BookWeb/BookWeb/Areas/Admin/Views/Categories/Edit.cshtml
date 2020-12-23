@@ -1,4 +1,5 @@
-﻿@model Model.Entity.Category @{ ViewBag.Title = "Edit"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+﻿@model Model.Entity.Category
+@{ ViewBag.Title = "Edit"; Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
 
 <h2>Edit</h2>
 <div class="container-fluid" style="padding:1% 5% 5% 5%">
@@ -7,7 +8,8 @@
             <h1 class="m-0 font-weight-bold text-primary">Ban Muon Sua The Loai Nay Khong?</h1>
         </div>
         <div class="card-body">
-            @using (Html.BeginForm()) { @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {@Html.AntiForgeryToken()
 
             <div class="form-horizontal">
                 <h4>Category</h4>
@@ -42,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            }
+        }
 
             <div>
                 @Html.ActionLink("Back to List", "Index")

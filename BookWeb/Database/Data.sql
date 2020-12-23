@@ -12,6 +12,7 @@ Insert into AccountGroup(id,name) values('Member', 'Khach Hang')
 --select * from Account
 Insert into Account(username,password,name,address,birthday,email,phone,gender,groupid,status) values ('admin','21232f297a57a5a743894a0e4a801fc3',N'Hoài Phong',N'Cần Thơ','09-19-2000','truongphuc271100@gmail.com',0373200876,1,'Admin',1)
 Insert into Account(username,password,name,address,birthday,email,phone,gender,groupid,status) values ('member','aa08769cdcb26674c6706093503ff0a3',N'Member1',N'Ca Mau','03-29-2000','ttlapa18081@cusc.ctu.edu.vn',0123456789,1,'Member',1)
+Insert into Account(username,password,name,address,birthday,email,phone,gender,groupid,status) values ('member1','e10adc3949ba59abbe56e057f20f883e',N'Member1',N'Ca Mau','03-29-2000','ttlapa18081@cusc.ctu.edu.vn',0123456789,1,'Member',1)
 
 --Category--
 --select * from Category

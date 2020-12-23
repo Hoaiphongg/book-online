@@ -9,11 +9,10 @@ namespace BookWeb.Models
     public class RegisterModel
     {
         [Key]
-        public int ID { set; get; }
-
+        public int id { get; set; }
+            
         [Display(Name = "Tên đăng nhập")]
         [Required(ErrorMessage = "Yêu cầu nhập tên đăng nhập")]
-
         public string UserName { set; get; }
 
         [Display(Name = "Mật khẩu")]
@@ -25,9 +24,18 @@ namespace BookWeb.Models
         [Compare("Password", ErrorMessage = "Xác nhận mật khẩu không đúng.")]
         public string ConfirmPassword { set; get; }
 
+        [Display(Name = "Quyen")]
+        public string GroupId { set; get; }
+
         [Display(Name = "Họ tên")]
         [Required(ErrorMessage = "Yêu cầu nhập họ tên")]
         public string Name { set; get; }
+
+        [Display(Name = "Gioi Tinh")]
+        public bool Gender { get; set; }
+
+        [Display(Name = "Ngay Sinh")]
+        public DateTime Birthday { get; set; }
 
         [Display(Name = "Địa chỉ")]
         public string Address { set; get; }
@@ -39,11 +47,6 @@ namespace BookWeb.Models
         [Display(Name = "Điện thoại")]
         public string Phone { set; get; }
 
-        [Display(Name = "Tỉnh/thành")]
-        public string ProvinceID { set; get; }
-
-
-        [Display(Name = "Quận/Quyện")]
-        public string DistrictID { set; get; }
+        public bool Status { get; set; }
     }
 }

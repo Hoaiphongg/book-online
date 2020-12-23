@@ -44,7 +44,7 @@ namespace BookWeb
             routes.MapRoute(
                 name: "Payment Success",
                 url: "hoan-thanh",
-                defaults: new { controller = "Cart", action = "Succses", id = UrlParameter.Optional },
+                defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional },
                 namespaces: new[] { "BookWeb.Controllers" }
             );
 
@@ -67,6 +67,13 @@ namespace BookWeb
                 url: "dang-ky",
                 defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
                 namespaces: new[] { "BookWeb.Controllers" }
+            );
+
+            routes.MapRoute(
+              name: "Payment Error",
+              url: "loi-thanh-toan",
+              defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "OnlineShop.Controllers" }
             );
 
             routes.MapRoute(

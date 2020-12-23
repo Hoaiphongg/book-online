@@ -8,7 +8,6 @@ D:\Nam Can Tho\book-online\BookWeb\Common\bin\Debug\System.Configuration.Configu
 D:\Nam Can Tho\book-online\BookWeb\Common\bin\Debug\System.Security.AccessControl.xml
 D:\Nam Can Tho\book-online\BookWeb\Common\bin\Debug\System.Security.Permissions.xml
 D:\Nam Can Tho\book-online\BookWeb\Common\bin\Debug\System.Security.Principal.Windows.xml
-D:\Nam Can Tho\book-online\BookWeb\Common\obj\Debug\Common.csprojAssemblyReference.cache
 D:\Nam Can Tho\book-online\BookWeb\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 D:\Nam Can Tho\book-online\BookWeb\Common\obj\Debug\Common.csproj.CopyComplete
 D:\Nam Can Tho\book-online\BookWeb\Common\obj\Debug\Common.dll

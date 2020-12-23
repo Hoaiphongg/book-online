@@ -17,7 +17,7 @@ namespace Model.Entity
 
         public int id { get; set; }
 
-        public Guid? name { get; set; }
+        public string name { get; set; }
 
         public double sale { get; set; }
 

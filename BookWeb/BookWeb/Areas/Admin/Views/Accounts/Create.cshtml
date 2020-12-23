@@ -1,4 +1,5 @@
-﻿@model Model.Entity.Account @{ ViewBag.Title = "Create"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+﻿@model Model.Entity.Account
+@{ ViewBag.Title = "Create"; Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
 
 <h2>Create</h2>
 
@@ -8,7 +9,8 @@
             <h1 class="m-0 font-weight-bold text-primary">Them Moi Nguoi Dung</h1>
         </div>
         <div class="card-body">
-            @using (Html.BeginForm()) { @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {@Html.AntiForgeryToken()
 
             <div class="form-horizontal">
                 <h4>Account</h4>
@@ -23,7 +25,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } }) @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @type="password" } }) @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -44,9 +46,10 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.gender) @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
-                        </div>
+                        Nam
+                            @Html.CheckBoxFor(model => model.gender,"Nam") @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                        Nu
+                            @Html.CheckBoxFor(model => model.gender,"Nu") @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -93,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            }
+        }
 
             <div>
                 @Html.ActionLink("Back to List", "Index")

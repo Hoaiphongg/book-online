@@ -8,118 +8,115 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.Entity;
-using BookWeb.Common;
 
 namespace BookWeb.Areas.Admin.Controllers
 {
-    public class AccountsController : Controller
+    public class BillDetailsController : Controller
     {
         private BookWebDataProvider db = new BookWebDataProvider();
 
-        // GET: Admin/Accounts
+        // GET: Admin/BillDetails
         public async Task<ActionResult> Index()
         {
-            var accounts = db.Accounts.Include(a => a.AccountGroup);
-            return View(await accounts.ToListAsync());
+            var billDetails = db.BillDetails.Include(b => b.Bill);
+            return View(await billDetails.ToListAsync());
         }
 
-        // GET: Admin/Accounts/Details/5
+        // GET: Admin/BillDetails/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = await db.Accounts.FindAsync(id);
-            if (account == null)
+            BillDetail billDetail = await db.BillDetails.FindAsync(id);
+            if (billDetail == null)
             {
                 return HttpNotFound();
             }
-            return View(account);
+            return View(billDetail);
         }
 
-        // GET: Admin/Accounts/Create
+        // GET: Admin/BillDetails/Create
         public ActionResult Create()
         {
-            ViewBag.groupid = new SelectList(db.AccountGroups, "id", "name");
+            ViewBag.idBill = new SelectList(db.Bills, "id", "shipaddress");
             return View();
         }
 
-        // POST: Admin/Accounts/Create
+        // POST: Admin/BillDetails/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,username,password,groupid,name,gender,birthday,address,phone,email,status")] Account account)
+        public async Task<ActionResult> Create([Bind(Include = "id,idBill,quantity,price")] BillDetail billDetail)
         {
             if (ModelState.IsValid)
             {
-                var encryptedMd5Pas = Encryptor.MD5Hash(account.password);
-                account.password = encryptedMd5Pas;
-                db.Accounts.Add(account);
-                db.SaveChanges();
+                db.BillDetails.Add(billDetail);
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.groupid = new SelectList(db.AccountGroups, "id", "name", account.groupid);
-            return View(account);
+            ViewBag.idBill = new SelectList(db.Bills, "id", "shipaddress", billDetail.idBill);
+            return View(billDetail);
         }
 
-        // GET: Admin/Accounts/Edit/5
+        // GET: Admin/BillDetails/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = await db.Accounts.FindAsync(id);
-            if (account == null)
+            BillDetail billDetail = await db.BillDetails.FindAsync(id);
+            if (billDetail == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.groupid = new SelectList(db.AccountGroups, "id", "name", account.groupid);
-            return View(account);
+            ViewBag.idBill = new SelectList(db.Bills, "id", "shipaddress", billDetail.idBill);
+            return View(billDetail);
         }
 
-        // POST: Admin/Accounts/Edit/5
+        // POST: Admin/BillDetails/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id,username,password,groupid,name,gender,birthday,address,phone,email,status")] Account account)
+        public async Task<ActionResult> Edit([Bind(Include = "id,idBill,quantity,price")] BillDetail billDetail)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(account).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Entry(billDetail).State = EntityState.Modified;
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.groupid = new SelectList(db.AccountGroups, "id", "name", account.groupid);
-            return View(account);
+            ViewBag.idBill = new SelectList(db.Bills, "id", "shipaddress", billDetail.idBill);
+            return View(billDetail);
         }
 
-        // GET: Admin/Accounts/Delete/5
+        // GET: Admin/BillDetails/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = await db.Accounts.FindAsync(id);
-            if (account == null)
+            BillDetail billDetail = await db.BillDetails.FindAsync(id);
+            if (billDetail == null)
             {
                 return HttpNotFound();
             }
-            return View(account);
+            return View(billDetail);
         }
 
-        // POST: Admin/Accounts/Delete/5
+        // POST: Admin/BillDetails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Account account = await db.Accounts.FindAsync(id);
-            db.Accounts.Remove(account);
+            BillDetail billDetail = await db.BillDetails.FindAsync(id);
+            db.BillDetails.Remove(billDetail);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

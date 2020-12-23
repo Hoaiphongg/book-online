@@ -2,6 +2,7 @@ namespace Model.Entity
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -26,6 +27,7 @@ namespace Model.Entity
         public string password { get; set; }
 
         [StringLength(20)]
+        [DefaultValue("Member")]
         public string groupid { get; set; }
 
         [Required]
@@ -34,8 +36,8 @@ namespace Model.Entity
 
         public bool gender { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime birthday { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? birthday { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -48,7 +50,8 @@ namespace Model.Entity
         [StringLength(50)]
         public string email { get; set; }
 
-        public bool status { get; set; }
+        [DefaultValue(true)]
+        public bool? status { get; set; }
 
         public virtual AccountGroup AccountGroup { get; set; }
 
