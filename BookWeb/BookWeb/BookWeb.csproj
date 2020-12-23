@@ -147,10 +147,17 @@
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\LoginAccount.cs" />
     <Compile Include="Common\SessionConstant.cs" />
+    <Compile Include="Controllers\AccountGroupsController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\BillDetailsController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\DiscountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -304,6 +311,7 @@
     <Content Include="Asests\clients\Image\tudien\8.jpg" />
     <Content Include="Asests\clients\Image\tudien\9.jpg" />
     <Content Include="Asests\clients\js\bootstrap.min.js" />
+    <Content Include="Asests\clients\js\controller\cartController.js" />
     <Content Include="Asests\clients\js\jquery-3.3.1.min.js" />
     <Content Include="Asests\clients\js\jquery-ui.min.js" />
     <Content Include="Asests\clients\js\jquery.nice-select.min.js" />
@@ -525,10 +533,48 @@
     <Content Include="Views\Book\Category.cshtml" />
     <Content Include="Views\Book\Detail.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Delete.cshtml" />
+    <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\AccountGroups\Create.cshtml" />
+    <Content Include="Views\AccountGroups\Delete.cshtml" />
+    <Content Include="Views\AccountGroups\Details.cshtml" />
+    <Content Include="Views\AccountGroups\Edit.cshtml" />
+    <Content Include="Views\AccountGroups\Index.cshtml" />
+    <Content Include="Views\Bills\Create.cshtml" />
+    <Content Include="Views\Bills\Delete.cshtml" />
+    <Content Include="Views\Bills\Details.cshtml" />
+    <Content Include="Views\Bills\Edit.cshtml" />
+    <Content Include="Views\Bills\Index.cshtml" />
+    <Content Include="Views\BillDetails\Create.cshtml" />
+    <Content Include="Views\BillDetails\Delete.cshtml" />
+    <Content Include="Views\BillDetails\Details.cshtml" />
+    <Content Include="Views\BillDetails\Edit.cshtml" />
+    <Content Include="Views\BillDetails\Index.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Delete.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Discounts\Create.cshtml" />
+    <Content Include="Views\Discounts\Delete.cshtml" />
+    <Content Include="Views\Discounts\Details.cshtml" />
+    <Content Include="Views\Discounts\Edit.cshtml" />
+    <Content Include="Views\Discounts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Product\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

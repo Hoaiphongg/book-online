@@ -19,25 +19,25 @@ namespace Model.Entity
 
         public int? idCustomer { get; set; }
 
-        public int idEmployee { get; set; }
-
         public int? idDiscount { get; set; }
 
         public double sale { get; set; }
 
         public DateTime checkin { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string shipaddress { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string shipMobile { get; set; }
 
-        public virtual Account Account { get; set; }
+        [StringLength(100)]
+        public string shipname { get; set; }
 
-        public virtual Account Account1 { get; set; }
+        [StringLength(50)]
+        public string shipemail { get; set; }
+
+        public virtual Account Account { get; set; }
 
         public virtual Discount Discount { get; set; }
 

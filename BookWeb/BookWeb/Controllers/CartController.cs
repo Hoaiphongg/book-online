@@ -3,6 +3,7 @@ using Model.DAO;
 using Model.Entity;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -118,7 +119,7 @@ namespace BookWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Payment( string mobile, string address)
+        public ActionResult Payment(string mobile, string address/*, string shipName, string email*/)
         {
             var order = new Bill();
             order.shipaddress = address;
@@ -129,19 +130,19 @@ namespace BookWeb.Controllers
                 var id = new BillDAO().Insert(order);
                 var cart = (List<CartItem>)Session[CartSession];
                 var detailDao = new Model.DAO.BillDetailDAO();
-                int total = 0;
+                double total = 0;
                 foreach (var item in cart)
                 {
-                    var orderDetail = new BillDetailDAO();
+                    var orderDetail = new BillDetail();
                     orderDetail.id = item.book.id;
                     orderDetail.idBill = id;
-                    orderDetail.price = item.book.Price;
+                    orderDetail.price = item.book.price;
                     orderDetail.quantity = item.quantity;
                     detailDao.Insert(orderDetail);
 
-                    total += (item.book.price.GetValueOrDefault(0) * item.quantity);
+                    total += (item.book.price * item.quantity);
                 }
-                string content = System.IO.File.ReadAllText(Server.MapPath("~/assets/client/template/neworder.html"));
+                /*string content = System.IO.File.ReadAllText(Server.MapPath("~/assets/client/template/neworder.html"));
 
                 content = content.Replace("{{Phone}}", mobile);
                 content = content.Replace("{{Address}}", address);
@@ -149,7 +150,7 @@ namespace BookWeb.Controllers
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
                 new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
-                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
+                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);*/
             }
             catch (Exception ex)
             {

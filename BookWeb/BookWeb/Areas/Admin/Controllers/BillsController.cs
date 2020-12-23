@@ -18,7 +18,7 @@ namespace BookWeb.Areas.Admin.Controllers
         // GET: Admin/Bills
         public async Task<ActionResult> Index()
         {
-            var bills = db.Bills.Include(b => b.Account).Include(b => b.Account1).Include(b => b.Discount);
+            var bills = db.Bills.Include(b => b.Account).Include(b => b.Account).Include(b => b.Discount);
             return View(await bills.ToListAsync());
         }
 
@@ -61,7 +61,6 @@ namespace BookWeb.Areas.Admin.Controllers
             }
 
             ViewBag.idCustomer = new SelectList(db.Accounts, "id", "username", bill.idCustomer);
-            ViewBag.idEmployee = new SelectList(db.Accounts, "id", "username", bill.idEmployee);
             ViewBag.idDiscount = new SelectList(db.Discounts, "id", "id", bill.idDiscount);
             return View(bill);
         }
@@ -79,7 +78,6 @@ namespace BookWeb.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.idCustomer = new SelectList(db.Accounts, "id", "username", bill.idCustomer);
-            ViewBag.idEmployee = new SelectList(db.Accounts, "id", "username", bill.idEmployee);
             ViewBag.idDiscount = new SelectList(db.Discounts, "id", "id", bill.idDiscount);
             return View(bill);
         }
@@ -98,7 +96,6 @@ namespace BookWeb.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idCustomer = new SelectList(db.Accounts, "id", "username", bill.idCustomer);
-            ViewBag.idEmployee = new SelectList(db.Accounts, "id", "username", bill.idEmployee);
             ViewBag.idDiscount = new SelectList(db.Discounts, "id", "id", bill.idDiscount);
             return View(bill);
         }

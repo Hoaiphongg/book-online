@@ -50,12 +50,6 @@ namespace Model.Entity
                 .WithOptional(e => e.Account)
                 .HasForeignKey(e => e.idCustomer);
 
-            modelBuilder.Entity<Account>()
-                .HasMany(e => e.Bills1)
-                .WithRequired(e => e.Account1)
-                .HasForeignKey(e => e.idEmployee)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<AccountGroup>()
                 .Property(e => e.id)
                 .IsUnicode(false);

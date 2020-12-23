@@ -83,12 +83,13 @@ create table [Bill]
 	[id] int identity primary key,
 
 	[idCustomer] int references [Account]([id]),
-	[idEmployee] int not null references [Account]([id]),
 	[idDiscount] int references [Discount]([id]),
 	[sale] float not null default 0,
 	[checkin] datetime not null default getdate(),
-	[shipaddress] nvarchar(100) not null,
-	[shipMobile] nvarchar(50) not null
+	[shipaddress] nvarchar(100),
+	[shipMobile] nvarchar(50),
+	[shipname] nvarchar(100),
+	[shipemail] nvarchar(50)
 )
 go
 

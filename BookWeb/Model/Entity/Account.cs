@@ -13,7 +13,6 @@ namespace Model.Entity
         public Account()
         {
             Bills = new HashSet<Bill>();
-            Bills1 = new HashSet<Bill>();
         }
 
         public int id { get; set; }
@@ -55,8 +54,5 @@ namespace Model.Entity
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bill> Bills { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bill> Bills1 { get; set; }
     }
 }

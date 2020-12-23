@@ -3,15 +3,18 @@ use BookStore
 go
 
 --Delete AccountGroup---
+--select * from AccountGroup
 Insert into AccountGroup(id,name) values('Admin', 'Quan Ly Trang')
 Insert into AccountGroup(id,name) values('Member', 'Khach Hang')
 
 
 --Delete Account--
+--select * from Account
 Insert into Account(username,password,name,address,birthday,email,phone,gender,groupid,status) values ('admin','21232f297a57a5a743894a0e4a801fc3',N'Hoài Phong',N'Cần Thơ','09-19-2000','truongphuc271100@gmail.com',0373200876,1,'Admin',1)
 Insert into Account(username,password,name,address,birthday,email,phone,gender,groupid,status) values ('member','aa08769cdcb26674c6706093503ff0a3',N'Member1',N'Ca Mau','03-29-2000','ttlapa18081@cusc.ctu.edu.vn',0123456789,1,'Member',1)
 
 --Category--
+--select * from Category
 Insert into Category(name,metatitle,status) values(N'English Sub','english-sub','1')
 Insert into Category(name,metatitle,status) values(N'Khoa Hoc','khoa-hoc','1')
 Insert into Category(name,metatitle,status) values(N'Sach Giao Khoa','sach-giao-khoa','1')
@@ -70,3 +73,5 @@ Insert into Menu(name,link,displayorder,status,typeid) values('Dang Ky','/dang-k
 Insert into Menu(name,link,displayorder,status,typeid) values('Doi Mat Khau','/doi-mat-khau',3,1,2)
 
 ---Slide--
+
+--select * from Menu
