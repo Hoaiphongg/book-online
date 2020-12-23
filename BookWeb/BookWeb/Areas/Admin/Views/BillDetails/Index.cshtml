@@ -1,46 +1,51 @@
-﻿@model IEnumerable<Model.Entity.BillDetail>
+﻿@model IEnumerable
+<Model.Entity.BillDetail>
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-}
+    @{ ViewBag.Title = "Index"; Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
 
-<h2>Index</h2>
+    <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Bill.shipaddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.price)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bill.shipaddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.price)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    <div class="container-fluid" style="padding-top: 10%">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h1 class="m-0 font-weight-bold text-primary">Danh Sach Tai Khoan Nguoi Dung He Thong</h1>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
 
-</table>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Bill.shipaddress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bill.shipaddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.price)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.id }) | @Html.ActionLink("Details", "Details", new { id=item.id }) | @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                        </td>
+                    </tr>
+                    }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

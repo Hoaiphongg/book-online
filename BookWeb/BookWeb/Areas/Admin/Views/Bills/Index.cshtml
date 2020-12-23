@@ -1,76 +1,81 @@
-﻿@model IEnumerable<Model.Entity.Bill>
+﻿@model IEnumerable
+<Model.Entity.Bill>
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    @{ ViewBag.Title = "Index"; Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-<h2>Index</h2>
+    <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Account.username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Discount.id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sale)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.checkin)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.shipaddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.shipMobile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.shipname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.shipemail)
-        </th>
-        <th></th>
-    </tr>
+    <div class="container-fluid" style="padding-top: 10%">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h1 class="m-0 font-weight-bold text-primary">Danh Sach Tai Khoan Nguoi Dung He Thong</h1>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Account.username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Discount.id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sale)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.checkin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.shipaddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.shipMobile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.shipname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.shipemail)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Account.username)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Discount.id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.sale)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.checkin)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.shipaddress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.shipMobile)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.shipname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.shipemail)
+                        </th>
+                        <th></th>
+                    </tr>
 
-</table>
+                    @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Account.username)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Discount.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sale)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.checkin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shipaddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shipMobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shipname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shipemail)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.id }) | @Html.ActionLink("Details", "Details", new { id=item.id }) | @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                        </td>
+                    </tr>
+                    }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
