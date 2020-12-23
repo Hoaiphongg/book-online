@@ -1,9 +1,26 @@
 ﻿@model List<Model.Entity.Menu>
 
 
-@foreach (var item in Model)
-{
-    <div class="header__top__right__auth" style="padding-right:10px;">
-        <a href="@item.link"><i class="fa fa-user"></i> @item.name</a>
-    </div>
+@{
+    var session =(BookWeb.Common.LoginAccount)Session[BookWeb.Common.SessionConstant.USER_SESSION];
 }
+
+@if (session == null)
+{
+    foreach (var item in Model)
+    {
+        <div class="header__top__right__auth" style="padding-right:10px;">
+            <a href="@item.link"><i class="fa fa-user"></i> @item.name</a>
+        </div>
+    }
+}
+else
+{
+<div class="header__top__right__auth" style="padding-right:10px;">
+    <ul>
+        <li>Xin chao: @session.Username</li>
+        <li>@Html.ActionLink("THoat","Logout","User")</li>
+    </ul>
+</div>
+}
+

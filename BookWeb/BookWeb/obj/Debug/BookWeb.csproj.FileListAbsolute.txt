@@ -170,3 +170,9 @@ D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\Newtonsoft.Json.xml
 D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\Antlr3.Runtime.pdb
 D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Nam Can Tho\book-online\BookWeb\BookWeb\obj\Debug\BookWeb.csproj.CopyComplete
+D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\Common.dll
+D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\SendGrid.dll
+D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\StarkbankEcdsa.dll
+D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\Common.pdb
+D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\SendGrid.pdb
+D:\Nam Can Tho\book-online\BookWeb\BookWeb\bin\SendGrid.xml

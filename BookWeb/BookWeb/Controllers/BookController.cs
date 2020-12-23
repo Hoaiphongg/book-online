@@ -66,5 +66,11 @@ namespace BookWeb.Controllers
             ViewBag.ListBookInCatogery = new BookDAO().ListBookDetail(id);
             return View(model);
         }
+
+        public ActionResult AllBook()
+        {
+            var model = new BookDAO().AllList();
+            return View(model);
+        }
     }
 }

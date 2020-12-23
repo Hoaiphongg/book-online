@@ -1,26 +1,30 @@
-﻿/*using System;
+﻿using BookWeb.Models;
+using Model.DAO;
+using Model.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BookWeb.Common;
 
 namespace BookWeb.Controllers
 {
     public class UserController : Controller
     {
-        private Uri RedirectUri
+        /*private Uri RedirectUri
         {
             get
             {
                 var uriBuilder = new UriBuilder(Request.Url);
                 uriBuilder.Query = null;
                 uriBuilder.Fragment = null;
-               *//* uriBuilder.Path = Url.Action("FacebookCallback");*//*
+                uriBuilder.Path = Url.Action("FacebookCallback");
                 return uriBuilder.Uri;
             }
         }
 
-        // GET: User
+        // GET: User*/
         [HttpGet]
         public ActionResult Register()
         {
@@ -32,7 +36,9 @@ namespace BookWeb.Controllers
 
             return View();
         }
-        *//*public ActionResult LoginFacebook()
+
+
+/*        public ActionResult LoginFacebook()
         {
             var fb = new FacebookClient();
             var loginUrl = fb.GetLoginUrl(new
@@ -45,9 +51,9 @@ namespace BookWeb.Controllers
             });
 
             return Redirect(loginUrl.AbsoluteUri);
-        }*/
+        }
 
-        /*public ActionResult FacebookCallback(string code)
+        public ActionResult FacebookCallback(string code)
         {
             var fb = new FacebookClient();
             dynamic result = fb.Post("oauth/access_token", new
@@ -87,10 +93,10 @@ namespace BookWeb.Controllers
                 }
             }
             return Redirect("/");
-        }*//*
+        }*/
         public ActionResult Logout()
         {
-            Session[CommonConstants.USER_SESSION] = null;
+            Session[SessionConstant.USER_SESSION] = null;
             return Redirect("/");
         }
         [HttpPost]
@@ -98,15 +104,15 @@ namespace BookWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dao = new UserDao();
-                var result = dao.Login(model.UserName, Encryptor.MD5Hash(model.Password));
+                var dao = new AccountDAO();
+                var result = dao.Login(model.UserName, Encryptor.MD5Hash(model.Password), model.Roll = "Member");
                 if (result == 1)
                 {
-                    var user = dao.GetById(model.UserName);
-                    var userSession = new UserLogin();
-                    userSession.UserName = user.UserName;
-                    userSession.UserID = user.ID;
-                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    var user = dao.GetByID(model.UserName);
+                    var userSession = new LoginAccount();
+                    userSession.Username = user.username;
+                    userSession.IdAccount = user.id;
+                    Session.Add(SessionConstant.USER_SESSION, userSession);
                     return Redirect("/");
                 }
                 else if (result == 0)
@@ -128,39 +134,35 @@ namespace BookWeb.Controllers
             }
             return View(model);
         }
+
         [HttpPost]
-        [CaptchaValidation("CaptchaCode", "registerCapcha", "Mã xác nhận không đúng!")]
+       /* [CaptchaValidation("CaptchaCode", "registerCapcha", "Mã xác nhận không đúng!")]*/
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                var dao = new UserDao();
+                var dao = new AccountDAO();
                 if (dao.CheckUserName(model.UserName))
                 {
                     ModelState.AddModelError("", "Tên đăng nhập đã tồn tại");
                 }
-                else if (dao.CheckEmail(model.Email))
-                {
-                    ModelState.AddModelError("", "Email đã tồn tại");
-                }
                 else
                 {
-                    var user = new User();
-                    user.Name = model.Name;
-                    user.Password = Encryptor.MD5Hash(model.Password);
-                    user.Phone = model.Phone;
-                    user.Email = model.Email;
-                    user.Address = model.Address;
-                    user.CreatedDate = DateTime.Now;
-                    user.Status = true;
-                    if (!string.IsNullOrEmpty(model.ProvinceID))
+                    var user = new Account();
+                    user.name = model.Name;
+                    user.password = Common.Encryptor.MD5Hash(model.Password);
+                    user.phone = model.Phone;
+                    user.email = model.Email;
+                    user.address = model.Address;
+                    user.status = true;
+                    /*if (!string.IsNullOrEmpty(model.ProvinceID))
                     {
                         user.ProvinceID = int.Parse(model.ProvinceID);
                     }
                     if (!string.IsNullOrEmpty(model.DistrictID))
                     {
                         user.DistrictID = int.Parse(model.DistrictID);
-                    }
+                    }*/
 
                     var result = dao.Insert(user);
                     if (result > 0)
@@ -177,7 +179,7 @@ namespace BookWeb.Controllers
             return View(model);
         }
 
-        public JsonResult LoadProvince()
+        /*public JsonResult LoadProvince()
         {
             var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
 
@@ -221,6 +223,6 @@ namespace BookWeb.Controllers
                 data = list,
                 status = true
             });
-        }
+        }*/
     }
-}*/
+}

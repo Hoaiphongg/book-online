@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Common;
 
 namespace BookWeb.Controllers
 {
@@ -119,11 +120,13 @@ namespace BookWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Payment(string mobile, string address/*, string shipName, string email*/)
+        public ActionResult Payment(string mobile, string address, string shipName, string email)
         {
             var order = new Bill();
+            order.shipname = shipName;
             order.shipaddress = address;
             order.shipMobile = mobile;
+            order.shipemail = email;
 
             try
             {
@@ -142,15 +145,17 @@ namespace BookWeb.Controllers
 
                     total += (item.book.price * item.quantity);
                 }
-                /*string content = System.IO.File.ReadAllText(Server.MapPath("~/assets/client/template/neworder.html"));
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/assets/client/template/neworder.html"));
 
+                content = content.Replace("{{CustomerName}}", shipName);
                 content = content.Replace("{{Phone}}", mobile);
+                content = content.Replace("{{Email}}", email);
                 content = content.Replace("{{Address}}", address);
                 content = content.Replace("{{Total}}", total.ToString("N0"));
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
-                new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
-                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);*/
+                new MailHepler().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
+                new MailHepler().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
             }
             catch (Exception ex)
             {

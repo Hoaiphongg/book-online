@@ -55,9 +55,16 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SendGrid, Version=9.22.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.9.22.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="StarkbankEcdsa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\starkbank-ecdsa.1.2.0\lib\net452\StarkbankEcdsa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -154,6 +161,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +313,7 @@
     <Content Include="Asests\clients\Image\tudien\9.jpg" />
     <Content Include="Asests\clients\js\bootstrap.min.js" />
     <Content Include="Asests\clients\js\controller\cartController.js" />
+    <Content Include="Asests\clients\js\controller\userController.js" />
     <Content Include="Asests\clients\js\jquery-3.3.1.min.js" />
     <Content Include="Asests\clients\js\jquery-ui.min.js" />
     <Content Include="Asests\clients\js\jquery.nice-select.min.js" />
@@ -311,6 +321,7 @@
     <Content Include="Asests\clients\js\main.js" />
     <Content Include="Asests\clients\js\mixitup.min.js" />
     <Content Include="Asests\clients\js\owl.carousel.min.js" />
+    <Content Include="Asests\clients\template\neworder.html" />
     <Content Include="Asests\css\datatable.bootstrap.min.css" />
     <Content Include="Asests\css\form.css" />
     <Content Include="Asests\css\styles.css" />
@@ -527,11 +538,13 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Book\AllBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Product\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -545,6 +558,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{bcace7b6-d316-4d28-95b8-faa18aadbcb3}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{cad35363-5364-432e-9a74-af7b2c3cb61c}</Project>
       <Name>Model</Name>

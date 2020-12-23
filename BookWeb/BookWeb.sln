@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWeb", "BookWeb\BookWeb.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{CAD35363-5364-432E-9A74-AF7B2C3CB61C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{BCACE7B6-D316-4D28-95B8-FAA18AADBCB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CAD35363-5364-432E-9A74-AF7B2C3CB61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAD35363-5364-432E-9A74-AF7B2C3CB61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAD35363-5364-432E-9A74-AF7B2C3CB61C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCACE7B6-D316-4D28-95B8-FAA18AADBCB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCACE7B6-D316-4D28-95B8-FAA18AADBCB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCACE7B6-D316-4D28-95B8-FAA18AADBCB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCACE7B6-D316-4D28-95B8-FAA18AADBCB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

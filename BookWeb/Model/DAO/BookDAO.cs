@@ -70,5 +70,10 @@ namespace Model.DAO
             model.OrderByDescending(x => x.id);
             return model.ToList();
         }
+
+        public List<Book> AllList()
+        {
+            return db.Books.OrderByDescending(x => x.id).ToList();
+        }
     }
 }

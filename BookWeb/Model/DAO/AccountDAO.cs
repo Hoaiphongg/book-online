@@ -56,5 +56,10 @@ namespace Model.DAO
             }
 
         }
+
+        public bool CheckUserName(string username)
+        {
+            return db.Accounts.Count(x => x.username == username) > 0;
+        }
     }
 }
